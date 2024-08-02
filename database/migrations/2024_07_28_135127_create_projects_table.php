@@ -17,6 +17,7 @@ return new class extends Migration
             $table->longText('descrizione');
             $table->date('data_inizio');
             $table->date('data_fine');
+            $table->string('immagine');
             $table->boolean('completato');
             $table->timestamps();
         });

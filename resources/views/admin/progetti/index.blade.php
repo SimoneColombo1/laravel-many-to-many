@@ -12,12 +12,7 @@
                         <li class="list-group-item">Inizio: {{ $project->data_inizio }} </li>
                         <li class="list-group-item">Fine: {{ $project->data_fine }} </li>
 
-                        <li class="list-group-item">Tecnologia usata: @forelse ($projects->technologies as $technology)
-                                {{ $technology->nome }}
-                            @empty
-                                Non specificata
-                            @endforelse
-                            <li />
+
 
                         <li class="list-group-item">
                             Completato: @if ($project->completato > 0)

@@ -25,6 +25,7 @@ class ProjectsSeeder extends Seeder
             $projects->data_inizio = $faker->date();
             $projects->data_fine = $faker->date();
             $projects->completato = $faker->boolean();
+            $projects->image = $faker->imageUrl();
             $projects->save();
         }
     }

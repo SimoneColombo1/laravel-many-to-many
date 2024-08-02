@@ -20,21 +20,21 @@
 
 
 
-                <form action="{{ route('admin.progetti.store') }}" method="POST" class=" py-5">
+                <form action="{{ route('admin.progetti.store') }}" method="POST" enctype="multipart/form-data" class="py-5 ">
                     @method('POST')
                     @csrf
                     <label for="Nome"> Nome</label>
 
-                    <input type="text" id="nome" name="nome" class="form-control form-control-sm mb-3 mt-3">
+                    <input type="text" id="nome" name="nome" class="mt-3 mb-3 form-control form-control-sm">
 
                     <label for="Specie"> Descrizione</label>
                     <input type="text" id="descrizione" name="descrizione"
-                        class="form-control form-control-sm mb-3 mt-3">
+                        class="mt-3 mb-3 form-control form-control-sm">
 
 
 
                     <label for="DataArrivo"> Data fine</label>
-                    <input type="date" id="data_fine" name="data_fine" class="form-control form-control-sm mb-3 mt-3">
+                    <input type="date" id="data_fine" name="data_fine" class="mt-3 mb-3 form-control form-control-sm">
                     <span> Completato:</span>
                     <label for="completato">Si</label>
                     <input type="radio" id="1" name="completato" value="1">
@@ -45,7 +45,7 @@
                             <option value="{{ $type->id }}"> {{ $type->name }} </option>
                         @endforeach
                     </select>
-                    <button class="btn  btn-primary mx-4">Crea</button>
+                    <button class="mx-4 btn btn-primary">Crea</button>
 
 
                 </form>
