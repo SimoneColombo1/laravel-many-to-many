@@ -18,6 +18,7 @@ class projects extends Model
         "data_inizio",
         "data_fine",
         "completato",
+        "image",
 
 
     ];

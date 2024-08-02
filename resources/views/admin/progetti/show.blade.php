@@ -25,7 +25,11 @@
                     <li class="list-group-item">
                         {{ $project->completato }}
                     </li>
+
                 </ul>
+                <div class="image">
+                    <img src="{{ asset('storage/') . $project->image }}" alt="{{ $project->nome }}" class="img-fluid">
+                </div>
             </div>
         </div>
 

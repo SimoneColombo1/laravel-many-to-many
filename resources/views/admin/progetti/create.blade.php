@@ -44,6 +44,9 @@
                         @foreach ($types as $type)
                             <option value="{{ $type->id }}"> {{ $type->name }} </option>
                         @endforeach
+                        <label for="image">Inserisci un immagine</label>
+                        <input type="file" name="image" name="image"><input>
+
                     </select>
                     <button class="mx-4 btn btn-primary">Crea</button>
 

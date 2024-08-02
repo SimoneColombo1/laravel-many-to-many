@@ -27,6 +27,7 @@ class StoreProjectRequest extends FormRequest
             "completato" => ["required"],
             "data_fine" => ["required"],
             "type_id" => ["required", "exists:types,id"],
+            "image" => ["required", "file", "max:4000"]
         ];
     }
 
@@ -39,7 +40,9 @@ class StoreProjectRequest extends FormRequest
             "descrizione.required" => "Per creare il progetto è necessario inserire una descrizione",
             "descrizione.min" => "Inserire almeno 20 caratteri",
             "completato.required" => "Scegliere almeno un opzione per segnare se il progetto è completato",
-            "data_fine.required" => "Per creare il progetto è necessaria la data di fine progetto"
+            "data_fine.required" => "Per creare il progetto è necessaria la data di fine progetto",
+            "image.required" => "inserire un immagine",
+            "image.max" => "l'immagine deve essere inferiore a 4mb"
         ];
     }
 }

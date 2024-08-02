@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\projects;
 use App\Models\Type;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 use function PHPSTORM_META\type;
 
@@ -39,7 +40,10 @@ class ProgettiController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+
         $data = $request->validated();
+        $img_path = Storage::put('uploads/projects', $data["image"]);
+        $data["image"] = $img_path;
         $data["data_inizio"] = Carbon::now();
         $newProgetto = projects::create($data);
         return redirect()->route('admin.admin.progetti.show', ($newProgetto));
@@ -67,7 +71,10 @@ class ProgettiController extends Controller
      */
     public function update(UpdateProjectRequest $request, projects $project)
     {
+
         $data = $request->validated();
+        $img_path = Storage::put('uploads/projects', $data['image']);
+        $data["image"] = $img_path;
         $data["data_inizio"] = Carbon::now();
         $project->update($data);
         return redirect()->route('admin.admin.progetti.show', ($project));
