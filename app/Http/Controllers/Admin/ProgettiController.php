@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Http\Request;
 use App\Models\projects;
+use App\Models\Technology;
 use App\Models\Type;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -31,8 +32,9 @@ class ProgettiController extends Controller
     {
 
         $project = new Projects();
+        $technologies = Technology::all();
         $types = type::all();
-        return view('admin.progetti.create', compact('project', 'types'));
+        return view('admin.progetti.create', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -63,7 +65,8 @@ class ProgettiController extends Controller
     public function edit(projects $project)
     {
         $types = type::all();
-        return  view('admin.progetti.edit', compact("project", "types"));
+        $technologies = Technology::all();
+        return  view('admin.progetti.edit', compact("project", "types", "technologies"));
     }
 
     /**

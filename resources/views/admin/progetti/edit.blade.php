@@ -45,6 +45,15 @@
                         @foreach ($types as $type)
                             <option value="{{ $type->id }}"> {{ $type->name }} </option>
                         @endforeach
+                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                            @foreach ($technologies as $technology)
+                                <input type="checkbox" name="technology" class="btn-check "
+                                    id="technology-check-{{ $technology->id }}" autocomplete="off"
+                                    value="{{ $technology->id }}">
+                                <label class="btn btn-outline-primary"
+                                    for="technology-check-{{ $technology->id }}">{{ $technology->nome }}</label>
+                            @endforeach
+                        </div>
                     </select>
                     <label for="image">Inserisci un immagine</label>
                     <input type="file" name="image" name="image">

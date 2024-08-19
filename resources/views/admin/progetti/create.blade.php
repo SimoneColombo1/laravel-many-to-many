@@ -46,7 +46,12 @@
                         @endforeach
                         <label for="image">Inserisci un immagine</label>
                         <input type="file" name="image" name="image"><input>
-
+                        @foreach ($technologies as $technology)
+                            <input type="checkbox" name="technology" class="btn check"
+                                id="technology-check={{ $technology->id }}" autocomplete="off"
+                                value="{{ $technology->id }}">
+                            <label for="technology-check={{ $technology->id }}">{{ $technology->name }}</label>
+                        @endforeach
                     </select>
                     <button class="mx-4 btn btn-primary">Crea</button>
 

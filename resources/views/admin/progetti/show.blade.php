@@ -23,8 +23,23 @@
                         {{ $project->data_fine }}
                     </li>
                     <li class="list-group-item">
-                        {{ $project->completato }}
+                        @if ($project->completato > 0)
+                            Si
+                        @endif
+                        @if ($project->completato < 1)
+                            No
+                        @endif
                     </li>
+                    @forelse ($project->technologies as $technology)
+                        <li class="list-group-item">
+                            {{ $technology->nome }}
+                        </li>
+                    @empty
+
+                        <li class="list-group-item">
+                            Non specificata
+                        </li>
+                    @endforelse
 
                 </ul>
                 <div class="image">
