@@ -28,7 +28,7 @@
 
                 </ul>
                 <div class="image">
-                    <img src="{{ asset('storage/') . $project->image }}" alt="{{ $project->nome }}" class="img-fluid">
+                    <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->nome }} " class="img-fluid">
                 </div>
             </div>
         </div>

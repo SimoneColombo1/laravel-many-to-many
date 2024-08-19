@@ -12,34 +12,47 @@
                         <li class="list-group-item">Inizio: {{ $project->data_inizio }} </li>
                         <li class="list-group-item">Fine: {{ $project->data_fine }} </li>
 
-
-
                         <li class="list-group-item">
-                            Completato: @if ($project->completato > 0)
-                                Si
-                            @endif
-                            @if ($project->completato < 1)
-                                No
-                            @endif
-                        </li>
+                            @forelse ($project->technologies as $technology)
+                                {{ $technology->nome }}
 
-                        <li class="list-group-item"><a href="{{ route('admin.admin.progetti.show', $project) }}"
-                                class="btn btn-primary">Apri il
-                                Progetto</a>
-                            <a href="{{ route('admin.admin.progetti.edit', $project) }}" class="btn btn-warning">Modifica
-                                Il progetto</a>
-                            <form action="{{ route('admin.progetti.destroy', $project) }} " method="POST"
-                                class="d-inline-block deleter">
-                                @method('DELETE')
-                                @csrf
-                                <button type="submit" class="btn btn-small btn-danger ">Elimina</button>
-                            </form>
+                            @empty
                         </li>
-                    </ul>
+                        <li class="list-group-item">
+                            Non specificata
+                        </li>
+            @endforelse
+            </li>
 
-                </div>
-            @endforeach
+            <li class="list-group-item">
+                Completato: @if ($project->completato > 0)
+                    Si
+                @endif
+                @if ($project->completato < 1)
+                    No
+                @endif
+            </li>
+
+
+
+
+            <li class="list-group-item"><a href="{{ route('admin.admin.progetti.show', $project) }}"
+                    class="btn btn-primary">Apri il
+                    Progetto</a>
+                <a href="{{ route('admin.admin.progetti.edit', $project) }}" class="btn btn-warning">Modifica
+                    Il progetto</a>
+                <form action="{{ route('admin.progetti.destroy', $project) }} " method="POST"
+                    class="d-inline-block deleter">
+                    @method('DELETE')
+                    @csrf
+                    <button type="submit" class="btn btn-small btn-danger ">Elimina</button>
+                </form>
+            </li>
+            </ul>
+
         </div>
+        @endforeach
+    </div>
 
 
 
